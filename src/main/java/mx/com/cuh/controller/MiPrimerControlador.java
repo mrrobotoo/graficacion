@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,5 +33,10 @@ public class MiPrimerControlador {
 	@GetMapping(value="/autor")
 	public List<Autor> obtenerAutor(){
 		return alumno.obtenerAutor();
+	}
+	
+	@PostMapping(value="/autor")
+	public void crearAlumno(@RequestBody Alumnos alumno ) {
+		System.out.println("hola");
 	}
 }
