@@ -1,6 +1,7 @@
 package mx.com.cuh.controller;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mx.com.cuh.entity.Autor;
 import mx.com.cuh.pojo.Alumnos;
+import mx.com.cuh.pojo.Response;
 import mx.com.cuh.service.Alumno;
 
 
@@ -36,7 +38,7 @@ public class MiPrimerControlador {
 	}
 	
 	@PostMapping(value="/autor")
-	public void crearAlumno(@RequestBody Alumnos alumno ) {
-		System.out.println("hola");
+	public Response crearAlumno(@RequestBody List<Autor> autores ) {
+		return alumno.insertarAutor(autores);
 	}
 }

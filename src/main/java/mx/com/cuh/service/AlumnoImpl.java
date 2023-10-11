@@ -1,6 +1,7 @@
 package mx.com.cuh.service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import mx.com.cuh.entity.Autor;
 import mx.com.cuh.pojo.Alumnos;
+import mx.com.cuh.pojo.Response;
 import mx.com.cuh.repository.AutorRepository;
 
 @Service
@@ -35,6 +37,18 @@ public class AlumnoImpl implements Alumno {
 	@Override
 	public List<Autor> obtenerAutor() {
 		return (List<Autor>) autorRepository.findAll();
+	}
+
+	@Override
+	public Response insertarAutor(List<Autor> autor) {
+		Response respuesta = new Response();
+		
+		for (Autor autor2 : autor) {
+			autorRepository.save(autor2);
+		}
+		
+		respuesta.setMensaje("todo ok");
+		return respuesta;
 	}
 
 }

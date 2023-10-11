@@ -2,7 +2,10 @@ package mx.com.cuh.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -10,6 +13,8 @@ import javax.persistence.Table;
 public class Autor {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "school_id_seq")
+	@SequenceGenerator(name = "school_id_seq", sequenceName = "autor_seq",  allocationSize=1)
 	@Column(name = "CODIGOAUTOR")
 	private Long codigoAutor;
 	
