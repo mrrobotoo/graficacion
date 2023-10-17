@@ -11,4 +11,5 @@ public interface Alumno {
 	List<Alumnos> obtenerAlumnos();
 	List<Autor> obtenerAutor();
 	Response insertarAutor(List<Autor> autor);
+	Response updateAutor(Autor autor, String cola);
 }

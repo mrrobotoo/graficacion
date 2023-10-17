@@ -3,6 +3,9 @@ package mx.com.cuh.service;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
+
+import javax.persistence.Tuple;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +44,7 @@ public class AlumnoImpl implements Alumno {
 
 	@Override
 	public Response insertarAutor(List<Autor> autor) {
+		List<Tuple> cosita = autorRepository.obtenervaloreslocos();
 		Response respuesta = new Response();
 		
 		for (Autor autor2 : autor) {
@@ -48,6 +52,23 @@ public class AlumnoImpl implements Alumno {
 		}
 		
 		respuesta.setMensaje("todo ok");
+		return respuesta;
+	}
+
+	@Override
+	public Response updateAutor(Autor autor, String matricula) {
+		Optional<Autor> autorencontado =autorRepository.findById(autor.getCodigoAutor());
+		Response respuesta = new Response();
+	
+		if (autorencontado.isPresent()) {
+			Autor autorperron = new Autor();
+			autorperron.setCodigoAutor(autorencontado.get().getCodigoAutor());
+			autorperron.setNombre(autorencontado.get().getNombre());
+			autorRepository.save(autorperron);
+			respuesta.setMensaje("El autor actualizado correctamente");
+		}else {
+			respuesta.setMensaje("El autor no existe");
+		}
 		return respuesta;
 	}
 
