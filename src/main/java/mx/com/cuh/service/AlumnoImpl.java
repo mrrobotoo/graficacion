@@ -60,11 +60,12 @@ public class AlumnoImpl implements Alumno {
 		Optional<Autor> autorencontado =autorRepository.findById(autor.getCodigoAutor());
 		Response respuesta = new Response();
 	
-		if (autorencontado.isPresent()) {
-			Autor autorperron = new Autor();
-			autorperron.setCodigoAutor(autorencontado.get().getCodigoAutor());
-			autorperron.setNombre(autorencontado.get().getNombre());
-			autorRepository.save(autorperron);
+			if (autorencontado.isPresent()) {
+				
+			    Autor autorperron = autorencontado.get();
+			    autorperron.setNombre(autor.getNombre());
+			    autorRepository.save(autorperron);
+			    
 			respuesta.setMensaje("El autor actualizado correctamente");
 		}else {
 			respuesta.setMensaje("El autor no existe");
