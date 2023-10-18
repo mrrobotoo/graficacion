@@ -17,4 +17,7 @@ public interface AutorRepository  extends CrudRepository<Autor, Long>{
 	@Query(value="SELECT NOMBRE, COUNT(*) matricula FROM AUTOR GROUP BY NOMBRE", nativeQuery = true)
 	public  List<Tuple> obtenervaloreslocos();
 	
+	@Query(value="delete from      LIBROAUTOR where codigoautor= :matricula", nativeQuery = true)
+	public void borradoLoco(Long matricula);
+	
 }
