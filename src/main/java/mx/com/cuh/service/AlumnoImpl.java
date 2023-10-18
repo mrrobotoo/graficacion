@@ -62,8 +62,9 @@ public class AlumnoImpl implements Alumno {
 	
 		if (autorencontado.isPresent()) {
 			Autor autorperron = new Autor();
-			autorperron.setCodigoAutor(autorencontado.get().getCodigoAutor());
-			autorperron.setNombre(autorencontado.get().getNombre());
+			autorperron = autorencontado.get();
+			//autorperron.setCodigoAutor(autorencontado.get().getCodigoAutor());
+			autorperron.setNombre(autor.getNombre());
 			autorRepository.save(autorperron);
 			respuesta.setMensaje("El autor actualizado correctamente");
 		}else {
