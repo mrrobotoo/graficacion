@@ -9,12 +9,12 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "AUTOR")
+@Table(name = "TABLAAPI")
 public class Autor {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "school_id_seq")
-	@SequenceGenerator(name = "school_id_seq", sequenceName = "SQ_TABLALOCA",  allocationSize=1)
+	@SequenceGenerator(name = "school_id_seq", sequenceName = "TABLAAPI_SQL",  allocationSize=1)
 	@Column(name = "CODIGOAUTOR")
 	private Long codigoAutor;
 	
