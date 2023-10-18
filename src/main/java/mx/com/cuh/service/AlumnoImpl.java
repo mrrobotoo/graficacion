@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
-
 import javax.persistence.Tuple;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +43,7 @@ public class AlumnoImpl implements Alumno {
 
 	@Override
 	public Response insertarAutor(List<Autor> autor) {
-		List<Tuple> cosita = autorRepository.obtenervaloreslocos();
+        List<Tuple> cosita = autorRepository.obtenervaloreslocos();
 		Response respuesta = new Response();
 		
 		for (Autor autor2 : autor) {
@@ -61,10 +60,8 @@ public class AlumnoImpl implements Alumno {
 		Response respuesta = new Response();
 	
 		if (autorencontado.isPresent()) {
-			Autor autorperron = new Autor();
-			autorperron.setCodigoAutor(autorencontado.get().getCodigoAutor());
-			autorperron.setNombre(autorencontado.get().getNombre());
-			autorRepository.save(autorperron);
+			autorencontado.get().setNombre(autor.getNombre());
+	        autorRepository.save(autorencontado.get());
 			respuesta.setMensaje("El autor actualizado correctamente");
 		}else {
 			respuesta.setMensaje("El autor no existe");
