@@ -36,7 +36,7 @@ public class MiSegundoControlador {
 	}
 	
 	@DeleteMapping(value="/autor")
-	public Response deleteAlumno( @RequestParam(name = "matricula") String matricula ) {
+	public Response deleteAlumno( @RequestParam(name = "matricula") String matricula ) throws Exception {
 		return alumno.deleteAutor(matricula);
 	}
 }
