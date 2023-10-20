@@ -9,16 +9,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.com.cuh.pojo.Words2Pojo;
+import mx.com.cuh.service.Words2Service;
 
 @RestController
 @RequestMapping
 public class Words2Controller {
 	
 	@Autowired
-	Words2Pojo words2Pojo;
-	//@GetMapping(value="/woget" )
-	//public List<Words2Pojo> metodoGet(@RequestParam(name = "id") String cosa) {
+	Words2Service words2Service;
+	@GetMapping(value="/woget" )
+	public List<Words2Pojo> metodGet(@RequestParam(name = "id") String cosa) {
 
-		//return words2Pojo.obtenerWords();
-		//}
+		return words2Service.obtenerWords();
+		}
 }
