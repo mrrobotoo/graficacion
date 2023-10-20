@@ -75,7 +75,7 @@ public class AlumnoImpl implements Alumno {
 	}
 
 	@Override
-	public Response deleteAutor(String matricula) throws Exception {
+	public Response deleteAutor(String matricula) {
 		
 		Optional<Autor> autorencontado =autorRepository.findById(Long.valueOf(matricula));
 		Response respuesta = new Response();
@@ -90,7 +90,6 @@ public class AlumnoImpl implements Alumno {
 			respuesta.setMensaje("El autor eliminado correctamente");
 		}else {
 			respuesta.setMensaje("El autor no existe");
-			throw new Exception("Trono");
 		}
 		return respuesta;
 	}
