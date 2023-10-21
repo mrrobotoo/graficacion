@@ -16,15 +16,16 @@ import mx.com.cuh.entity.Autor;
 import mx.com.cuh.pojo.Alumnos;
 import mx.com.cuh.pojo.Response;
 import mx.com.cuh.service.Alumno;
+import mx.com.cuh.service.AlumnoService;
 
 
 
 @RestController
-@RequestMapping(value = "/portaldocente")
-public class MiPrimerControlador {
+@RequestMapping(value = "/alumnos")
+public class AlumnoController {
 	
 	@Autowired
-	private Alumno alumno;
+	private AlumnoService alumnoService;
 	
 	@GetMapping(value="/cargaacademica-alumnos" )
 	public List<Alumnos> metodoGet(@RequestParam(name = "grupo") String cosa) {
