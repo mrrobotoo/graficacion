@@ -18,16 +18,15 @@ import mx.com.cuh.entity.Autor;
 import mx.com.cuh.pojo.Alumnos;
 import mx.com.cuh.pojo.Response;
 import mx.com.cuh.service.Alumno;
-import mx.com.cuh.service.ColegiaturaService;
 
 
 
 @RestController
-@RequestMapping(value = "/colegiaturas")
-public class ColegiaturaController {
+@RequestMapping(value = "/portalalumno")
+public class MiSegundoControlador {
 	
 	@Autowired
-	private ColegiaturaService colegiaturaService;
+	private Alumno alumno;
 	
 	
 	
