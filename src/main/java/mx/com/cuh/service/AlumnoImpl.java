@@ -60,15 +60,38 @@ public class AlumnoImpl implements Alumno {
 		Optional<Autor> autorencontado =autorRepository.findById(autor.getCodigoAutor());
 		Response respuesta = new Response();
 	
+
 			if (autorencontado.isPresent()) {
 				
 			    Autor autorperron = autorencontado.get();
 			    autorperron.setNombre(autor.getNombre());
 			    autorRepository.save(autorperron);
 			    
+
 			respuesta.setMensaje("El autor actualizado correctamente");
 		}else {
 			respuesta.setMensaje("El autor no existe");
+		}
+		return respuesta;
+	}
+
+	@Override
+	public Response deleteAutor(String matricula) throws Exception {
+		
+		Optional<Autor> autorencontado =autorRepository.findById(Long.valueOf(matricula));
+		Response respuesta = new Response();
+	
+		if (autorencontado.isPresent()) {
+			
+			Autor autorExistente = autorencontado.get();
+			autorRepository.borradoLoco(Long.valueOf(matricula));
+	        autorRepository.delete(autorExistente);
+	        
+		
+			respuesta.setMensaje("El autor eliminado correctamente");
+		}else {
+			respuesta.setMensaje("El autor no existe");
+			throw new Exception("Trono");
 		}
 		return respuesta;
 	}

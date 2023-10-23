@@ -12,4 +12,5 @@ public interface Alumno {
 	List<Autor> obtenerAutor();
 	Response insertarAutor(List<Autor> autor);
 	Response updateAutor(Autor autor, String cola);
+	Response deleteAutor(String cola) throws Exception;
 }

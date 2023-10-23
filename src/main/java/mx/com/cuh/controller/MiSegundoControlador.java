@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -32,5 +33,10 @@ public class MiSegundoControlador {
 	@PutMapping(value="/alumnos")
 	public Response updateAlumno(@RequestBody Autor autor, @RequestParam(name = "matricula") String matricula ) {
 		return alumno.updateAutor(autor, matricula);
+	}
+	
+	@DeleteMapping(value="/autor")
+	public Response deleteAlumno( @RequestParam(name = "matricula") String matricula ) throws Exception {
+		return alumno.deleteAutor(matricula);
 	}
 }
