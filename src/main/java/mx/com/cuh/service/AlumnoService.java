@@ -9,6 +9,6 @@ public interface AlumnoService {
 	
 	List<Alumno> obtenerAlumnos();
 	Response insertarAlumno(List<Alumno> alumno);
-	Response updateAlumno(Alumno alumno, String matricula);
-	Response deleteAlumno(String matricula);
+	Response updateAlumno(Alumno alumno, Long matricula);
+	Response deleteAlumno(Long matricula) throws Exception;
 }

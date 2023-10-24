@@ -13,10 +13,13 @@ import mx.com.cuh.entity.Alumno;
 @Repository
 public interface AlumnoRepository  extends CrudRepository<Alumno, Long>{
 
-	@Query(value="SELECT NOMBRE, COUNT(*) matricula FROM AUTOR GROUP BY NOMBRE", nativeQuery = true)
-	public  List<Tuple> obtenervaloreslocos();
+	@Query(value="SELECT Alumno, COUNT(*) matricula FROM CONTROL GROUP BY Alumno", nativeQuery = true)
+	public  List<Tuple> obtenervalores();
 	
-	@Query(value="delete from      LIBROAUTOR where codigoautor= :matricula", nativeQuery = true)
-	public void borradoLoco(Long matricula);
+	//@Query(value="delete from      CONTROL where codigoautor= :matricula", nativeQuery = true)
+	//public void borrar(Long matricula);
 	
 }
+
+
+ 
