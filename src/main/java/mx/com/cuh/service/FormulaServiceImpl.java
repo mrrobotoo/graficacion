@@ -6,11 +6,13 @@ import java.util.Optional;
 import javax.persistence.Tuple;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import mx.com.cuh.entity.FormulaEntity;
 import mx.com.cuh.pojo.Response;
 import mx.com.cuh.repository.FormulaRepository;
 
+@Service
 public class FormulaServiceImpl implements FormulaService {
 	@Autowired
 	private FormulaRepository formulaRepository;
@@ -22,7 +24,7 @@ public class FormulaServiceImpl implements FormulaService {
 
 	@Override
 	public Response insertarDatos(List<FormulaEntity> corredores) {
-		List<Tuple> listado = formulaRepository.obtenerDatos();
+		//List<Tuple> corredor = formulaRepository.obtenerDatos();
 		Response mensaje = new Response();
 		
 		for(FormulaEntity corredor2 : corredores) {
@@ -34,7 +36,7 @@ public class FormulaServiceImpl implements FormulaService {
 	}
 
 	@Override
-	public Response eliminarDatos(FormulaEntity corredores, int id) {
+	public Response eliminarDatos(FormulaEntity corredores, Integer id) {
 		Optional<FormulaEntity> corredorFind =formulaRepository.findById(corredores.getId());
 		Response respuesta = new Response();
 	
@@ -46,6 +48,25 @@ public class FormulaServiceImpl implements FormulaService {
 			respuesta.setMensaje("El corredor se elimino de manera exitosa");
 		}else {
 			respuesta.setMensaje("El corredor no existe en nuestra base de datos");
+		}
+		return respuesta;
+	}
+	@Override
+	public Response actualizarDatos(FormulaEntity corredores, Integer id) {
+		Optional<FormulaEntity> corredorFind = formulaRepository.findById(corredores.getId());
+		Response respuesta = new Response();
+	
+		if (corredorFind.isPresent()) {
+			FormulaEntity corredorFormula = new FormulaEntity();
+			corredorFormula = corredorFind.get();
+			corredorFormula.setNombre(corredores.getNombre());
+			corredorFormula.setEquipo(corredores.getEquipo());
+			corredorFormula.setNacionalidad(corredores.getNacionalidad());
+			corredorFormula.setEdad(corredores.getEdad());
+			formulaRepository.save(corredorFormula);
+			respuesta.setMensaje("El corredor fue actualizado de manera exitosa");
+		}else {
+			respuesta.setMensaje("No existe registro del corredor");
 		}
 		return respuesta;
 	}

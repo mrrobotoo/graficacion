@@ -14,5 +14,7 @@ import mx.com.cuh.entity.FormulaEntity;
 public interface FormulaRepository extends CrudRepository<FormulaEntity, Integer>{
 	@Query(value="SELECT NOMBRE, COUNT(*) id FROM formula GROUP BY NOMBre", nativeQuery = true)
 	public List<Tuple> obtenerDatos();
+	@Query(value="delete from formula where id= :id", nativeQuery=true)
+	public FormulaEntity eliminarDatos();
 
 }

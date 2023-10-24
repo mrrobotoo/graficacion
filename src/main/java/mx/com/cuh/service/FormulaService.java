@@ -8,6 +8,7 @@ import mx.com.cuh.pojo.Response;
 public interface FormulaService {
 	List<FormulaEntity> obtenerDatos();
 	Response insertarDatos(List<FormulaEntity> corredores);
-	Response eliminarDatos(FormulaEntity corredores, int id);
+	Response eliminarDatos(FormulaEntity corredores, Integer id);
+	Response actualizarDatos(FormulaEntity corredores, Integer id);
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,6 +35,10 @@ public class FormulaController {
 	@DeleteMapping(value="/corredores")
 	public Response eliminarDatos(@RequestBody FormulaEntity corredores, @RequestParam(name = "id") Integer id ) {
 		return corredor.eliminarDatos(corredores, id);
+	}
+	@PutMapping(value="/corredores")
+	public Response actualizarDatos(@RequestBody FormulaEntity corredores, @RequestParam(name = "id") Integer id) {
+		return corredor.actualizarDatos(corredores, id);
 	}
 
 }
