@@ -3,35 +3,28 @@ package mx.com.cuh.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import mx.com.cuh.entity.Colegiatura;
+
+import mx.com.cuh.entity.Alumno;
 import mx.com.cuh.pojo.Response;
-import mx.com.cuh.service.ColegiaturaService;
+import mx.com.cuh.service.AlumnoService;
+
 
 @RestController
-@RequestMapping("/colegiaturas")
+@RequestMapping(value = "/colegiatura")
 public class ColegiaturaController {
+	
+	@Autowired
+	private AlumnoService alumno;
+	
+	
+	 @PutMapping(value = "/update")
+	    public Response updateAlumno(@RequestBody Alumno alumno, @RequestParam(name = "matricula") Long matricula) {
+	        return ((AlumnoService) alumno).updateAlumno(alumno, matricula);
 
-    @Autowired
-    private ColegiaturaService colegiaturaService;
-
-    @GetMapping
-    public List<Colegiatura> obtenerColegiaturas() {
-        return colegiaturaService.obtenerColegiaturas();
-    }
-
-    @PostMapping
-    public Response insertarColegiatura(@RequestBody Colegiatura colegiatura) {
-        return colegiaturaService.insertarColegiatura(colegiatura);
-    }
-
-    @PutMapping("/{colegiaturaId}")
-    public Response updateColegiatura(@RequestBody Colegiatura colegiatura, @PathVariable Long colegiaturaId) {
-        return colegiaturaService.updateColegiatura(colegiatura, colegiaturaId);
-    }
-
-    @DeleteMapping("/{colegiaturaId}")
-    public Response deleteColegiatura(@PathVariable Long colegiaturaId) {
-        return colegiaturaService.deleteColegiatura(colegiaturaId);
-    }
+	    	}
+	     
+	    @DeleteMapping(value="/delete")	
+		public Response deleteAlumno( @RequestParam(name = "matricula") Long matricula ) throws Exception {
+			return alumno.deleteAlumno(matricula);
+		}
 }

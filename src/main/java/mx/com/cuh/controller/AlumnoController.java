@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import mx.com.cuh.entity.Alumno;
+
 import mx.com.cuh.pojo.Response;
 import mx.com.cuh.service.AlumnoService;
 
@@ -15,23 +16,14 @@ public class AlumnoController {
     @Autowired
     private AlumnoService alumnoService;
 
-    @GetMapping
+    @GetMapping (value = "/get")
     public List<Alumno> obtenerAlumnos() {
         return alumnoService.obtenerAlumnos();
     }
 
-    @PostMapping
+    @PostMapping (value = "/insert")
     public Response insertarAlumno(@RequestBody List<Alumno> alumnos) {
         return alumnoService.insertarAlumno(alumnos);
     }
 
-    @PutMapping("/{matricula}")
-    public Response updateAlumno(@RequestBody Alumno alumno, @PathVariable String matricula) {
-        return alumnoService.updateAlumno(alumno, matricula);
-    }
-
-    @DeleteMapping("/{matricula}")
-    public Response deleteAlumno(@PathVariable String matricula) {
-        return alumnoService.deleteAlumno(matricula);
-    }
 }
