@@ -1,6 +1,6 @@
 package mx.com.cuh.pojo;
 
-import java.time.LocalDate;
+
 
 public class ColegiaturaRequest {
 private Long alumnoId;
@@ -16,12 +16,12 @@ public Double getMonto() {
 public void setMonto(Double monto) {
 	this.monto = monto;
 }
-public LocalDate getFechaPago() {
-	return fechaPago;
+public String getFechaPago() {
+	return FechaPago;
 }
-public void setFechaPago(LocalDate fechaPago) {
-	this.fechaPago = fechaPago;
+public void setFechaPago(String fechaPago) {
+	this.FechaPago = fechaPago;
 }
 private Double monto;
-private LocalDate fechaPago;
+private String FechaPago;
 }
