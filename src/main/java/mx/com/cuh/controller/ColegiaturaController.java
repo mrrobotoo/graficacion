@@ -18,8 +18,8 @@ public class ColegiaturaController {
 	
 	
 	 @PutMapping(value = "/update")
-	    public Response updateAlumno(@RequestBody Alumno alumno, @RequestParam(name = "matricula") Long matricula) {
-	        return ((AlumnoService) alumno).updateAlumno(alumno, matricula);
+	    public Response updateAlumno(@RequestBody Alumno alumnoActualizado, @RequestParam(name = "matricula") Long matricula) {
+	        return alumno.updateAlumno(alumnoActualizado, matricula);
 
 	    	}
 	     
