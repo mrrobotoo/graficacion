@@ -16,6 +16,12 @@ public interface AlumnoRepository  extends CrudRepository<Alumno, Long>{
 	@Query(value="SELECT Alumno, COUNT(*) matricula FROM CONTROL GROUP BY Alumno", nativeQuery = true)
 	public  List<Tuple> obtenervalores();
 	
+	 @Query(value = "INSERT INTO CONTROL (matricula, Alumno, NOMBRE, Monto, FechaPago) " +
+             "VALUES (:matricula, :alumno, :nombre, :Monto, :FechaPago)",
+     nativeQuery = true)
+	public void insertar(List<Alumno> alumno);
+	
+	
 	//@Query(value="delete from      CONTROL where codigoautor= :matricula", nativeQuery = true)
 	//public void borrar(Long matricula);
 	

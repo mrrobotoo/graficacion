@@ -1,9 +1,6 @@
 package mx.com.cuh.entity;
 
 
-import java.time.LocalDate;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,48 +9,65 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 @Entity
 @Table(name = "CONTROL")
+@JsonPropertyOrder({"matricula", "nombre", "apellidos", "calificacion", "adeudos", "estado"})
 public class Alumno {
 @Id
 @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "school_id_seq")
-@SequenceGenerator(name = "school_id_seq", sequenceName = "Seq_I",  allocationSize=1)
+@SequenceGenerator(name = "school_id_seq", sequenceName = "B",  allocationSize=1)
 private Long matricula;
 
-
-
-@Column(name = "Alumno")
-private String Alumno;
 
 @Column(name = "NOMBRE")
 private String nombre;
 
-@Column(name = "Monto")
-private Double monto;
+@Column(name = "Apellidos")
+private String Apellidos;
 
-@Column(name = "FechaPago")
-private String FechaPago;
+@Column(name = "Calificacion")
+private Double calificacion;
+
+@Column(name = "Adeudos")
+private String Adeudos;
+
+@Column(name = "Estado")
+private String Estado;
 
 
-
-
-
-public String getFechaPago() {
-	return FechaPago;
+public Double getCalificacion() {
+	return calificacion;
 }
 
-public void setFechaPago(String fechaPago) {
-	FechaPago = fechaPago;
+public void setCalificacion(Double calificacion) {
+	this.calificacion = calificacion;
 }
 
-public Double getMonto() {
-	return monto;
+public String getAdeudos() {
+	return Adeudos;
 }
 
-public void setMonto(Double monto) {
-	this.monto = monto;
+public void setAdeudos(String adeudos) {
+	Adeudos = adeudos;
 }
 
+public String getEstado() {
+	return Estado;
+}
+
+public void setEstado(String estado) {
+	Estado = estado;
+}
+
+public String getApellidos() {
+	return Apellidos;
+}
+
+public void setApellidos(String apellidos) {
+	Apellidos = apellidos;
+}
 
 
 public Long getMatricula() {
@@ -64,13 +78,6 @@ public void setMatricula(Long matricula) {
 	this.matricula = matricula;
 }
 
-public String getAlumno() {
-	return Alumno;
-}
-
-public void setAlumno(String alumno) {
-	Alumno = alumno;
-}
 
 public String getNombre() {
 	return nombre;
