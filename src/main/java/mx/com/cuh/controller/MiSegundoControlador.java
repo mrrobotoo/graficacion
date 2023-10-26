@@ -18,7 +18,7 @@ import mx.com.cuh.entity.Autor;
 import mx.com.cuh.pojo.Alumnos;
 import mx.com.cuh.pojo.Response;
 import mx.com.cuh.service.Alumno;
-
+/*
 
 
 @RestController
@@ -39,3 +39,4 @@ public class MiSegundoControlador {
 		return alumno.deleteAutor(matricula);
 	}
 }
+*/

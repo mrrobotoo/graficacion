@@ -17,8 +17,7 @@ import mx.com.cuh.pojo.Alumnos;
 import mx.com.cuh.pojo.Response;
 import mx.com.cuh.service.Alumno;
 
-
-
+/*
 @RestController
 @RequestMapping(value = "/portaldocente")
 public class MiPrimerControlador {
@@ -42,3 +41,4 @@ public class MiPrimerControlador {
 		return alumno.insertarAutor(autores);
 	}
 }
+*/

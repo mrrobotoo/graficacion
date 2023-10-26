@@ -10,7 +10,6 @@ import org.springframework.data.repository.CrudRepository;
 import mx.com.cuh.entity.Words2;
 
 public interface Words2Repository extends CrudRepository<Words2, Long> {
-
-	@Query(value="SELECT palabra, COUNT(*) idword FROM frases GROUP BY palabra", nativeQuery = true)
+	@Query(value="select palabra from frases", nativeQuery = true)
 	public  List<Tuple> obtenerfullvalores();
 }
