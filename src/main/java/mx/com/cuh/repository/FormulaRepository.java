@@ -1,6 +1,7 @@
 package mx.com.cuh.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.Tuple;
 
@@ -16,5 +17,8 @@ public interface FormulaRepository extends CrudRepository<FormulaEntity, Integer
 	public List<Tuple> obtenerDatos();
 	@Query(value="delete from formula where id= :id", nativeQuery=true)
 	public FormulaEntity eliminarDatos();
+	@Query(value="select * from formula where id= :id", nativeQuery=true)
+	public Optional<FormulaEntity> buscarId();
+
 
 }

@@ -1,6 +1,7 @@
 package mx.com.cuh.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,6 +40,10 @@ public class FormulaController {
 	@PutMapping(value="/corredores")
 	public Response actualizarDatos(@RequestBody FormulaEntity corredores, @RequestParam(name = "id") Integer id) {
 		return corredor.actualizarDatos(corredores, id);
+	}
+	@GetMapping (value="/corredor")
+	public Optional<FormulaEntity> buscarId(@RequestParam(name="id") Integer id){
+		return corredor.buscarId(id);
 	}
 
 }
