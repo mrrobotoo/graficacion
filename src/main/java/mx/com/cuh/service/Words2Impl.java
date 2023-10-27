@@ -1,4 +1,5 @@
 package mx.com.cuh.service;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,9 +10,9 @@ import javax.persistence.Tuple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import mx.com.cuh.entity.Autor;
+
 import mx.com.cuh.entity.Words2;
-import mx.com.cuh.pojo.Alumnos;
+
 import mx.com.cuh.pojo.Response;
 import mx.com.cuh.pojo.Words2Pojo;
 import mx.com.cuh.pojo.Words2Response;

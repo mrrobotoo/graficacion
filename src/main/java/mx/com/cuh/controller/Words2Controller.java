@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import mx.com.cuh.entity.Autor;
 import mx.com.cuh.entity.Words2;
 import mx.com.cuh.pojo.Response;
 import mx.com.cuh.pojo.Words2Pojo;
